@@ -2,7 +2,7 @@
 //  ContentView.swift
 //  ExploreCity
 //
-//  Created by Pabita Pun on 2024-02-08.
+//  Created by Vaishnavi on 2024-02-08.
 //
 
 import SwiftUI
