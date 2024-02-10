@@ -7,6 +7,10 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		316D0DE82B773E48004B280C /* Activity.swift in Sources */ = {isa = PBXBuildFile; fileRef = 316D0DE72B773E47004B280C /* Activity.swift */; };
+		316D0DEA2B773E52004B280C /* DataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 316D0DE92B773E52004B280C /* DataManager.swift */; };
+		316D0DEC2B773E70004B280C /* City.swift in Sources */ = {isa = PBXBuildFile; fileRef = 316D0DEB2B773E70004B280C /* City.swift */; };
+		316D0DEE2B77407E004B280C /* ActivityList.swift in Sources */ = {isa = PBXBuildFile; fileRef = 316D0DED2B77407E004B280C /* ActivityList.swift */; };
 		500F3CFC2B7588A300EA6EF1 /* ExploreCityApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 500F3CFB2B7588A300EA6EF1 /* ExploreCityApp.swift */; };
 		500F3CFE2B7588A300EA6EF1 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 500F3CFD2B7588A300EA6EF1 /* ContentView.swift */; };
 		500F3D002B7588A400EA6EF1 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 500F3CFF2B7588A400EA6EF1 /* Assets.xcassets */; };
@@ -36,6 +40,10 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		316D0DE72B773E47004B280C /* Activity.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Activity.swift; sourceTree = "<group>"; };
+		316D0DE92B773E52004B280C /* DataManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataManager.swift; sourceTree = "<group>"; };
+		316D0DEB2B773E70004B280C /* City.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = City.swift; sourceTree = "<group>"; };
+		316D0DED2B77407E004B280C /* ActivityList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActivityList.swift; sourceTree = "<group>"; };
 		500F3CF82B7588A300EA6EF1 /* ExploreCity.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ExploreCity.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		500F3CFB2B7588A300EA6EF1 /* ExploreCityApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExploreCityApp.swift; sourceTree = "<group>"; };
 		500F3CFD2B7588A300EA6EF1 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -75,6 +83,26 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		316D0DE52B773E1E004B280C /* View */ = {
+			isa = PBXGroup;
+			children = (
+				500F3D252B758BDD00EA6EF1 /* HomeScreen.swift */,
+				316D0DED2B77407E004B280C /* ActivityList.swift */,
+				500F3D292B758C5D00EA6EF1 /* ActivityDetailsScreen.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		316D0DE62B773E28004B280C /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				316D0DE72B773E47004B280C /* Activity.swift */,
+				316D0DE92B773E52004B280C /* DataManager.swift */,
+				316D0DEB2B773E70004B280C /* City.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
 		500F3CEF2B7588A300EA6EF1 = {
 			isa = PBXGroup;
 			children = (
@@ -98,12 +126,12 @@
 		500F3CFA2B7588A300EA6EF1 /* ExploreCity */ = {
 			isa = PBXGroup;
 			children = (
+				316D0DE62B773E28004B280C /* Model */,
+				316D0DE52B773E1E004B280C /* View */,
 				500F3CFB2B7588A300EA6EF1 /* ExploreCityApp.swift */,
 				500F3CFD2B7588A300EA6EF1 /* ContentView.swift */,
 				500F3CFF2B7588A400EA6EF1 /* Assets.xcassets */,
 				500F3D012B7588A400EA6EF1 /* Preview Content */,
-				500F3D252B758BDD00EA6EF1 /* HomeScreen.swift */,
-				500F3D292B758C5D00EA6EF1 /* ActivityDetailsScreen.swift */,
 			);
 			path = ExploreCity;
 			sourceTree = "<group>";
@@ -263,10 +291,14 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				316D0DE82B773E48004B280C /* Activity.swift in Sources */,
+				316D0DEA2B773E52004B280C /* DataManager.swift in Sources */,
 				500F3CFE2B7588A300EA6EF1 /* ContentView.swift in Sources */,
 				500F3D2A2B758C5D00EA6EF1 /* ActivityDetailsScreen.swift in Sources */,
 				500F3CFC2B7588A300EA6EF1 /* ExploreCityApp.swift in Sources */,
 				500F3D262B758BDD00EA6EF1 /* HomeScreen.swift in Sources */,
+				316D0DEE2B77407E004B280C /* ActivityList.swift in Sources */,
+				316D0DEC2B773E70004B280C /* City.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

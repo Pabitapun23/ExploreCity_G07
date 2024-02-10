@@ -8,8 +8,33 @@
 import SwiftUI
 
 struct ActivityList: View {
+    var cityList = DataManager.shared.cityList
+    
     var body: some View {
-        Text(/*@START_MENU_TOKEN@*/"Hello, World!"/*@END_MENU_TOKEN@*/)
+        NavigationStack{
+            List{
+                ForEach(cityList){ city in
+                    Section("Activity in \(city.name)"){
+                        ForEach(city.activityList){ activity in
+                            NavigationLink(destination: HomeScreen()){
+                                HStack(alignment: .top){
+                                    Image(systemName: "photo")
+                                        .resizable()
+                                        .frame(width: 50, height: 50)
+                                    VStack(alignment: .leading){
+                                        Text("\(activity.name)")
+                                            .font(.headline)
+                                        Text("$\(String(format: "%.2f", activity.pricePerPerson)) / person")
+                                            .font(.subheadline)
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+            .navigationTitle("Activity")
+        }
     }
 }
 
