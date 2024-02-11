@@ -16,7 +16,7 @@ struct ActivityList: View {
                 ForEach(cityList){ city in
                     Section("Activity in \(city.name)"){
                         ForEach(city.activityList){ activity in
-                            NavigationLink(destination: HomeScreen()){
+                            NavigationLink(destination: ActivityDetailsScreen()){
                                 HStack(alignment: .top){
                                     Image(systemName: "photo")
                                         .resizable()
