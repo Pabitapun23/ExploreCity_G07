@@ -16,9 +16,11 @@ struct ContentView: View {
                     .font(/*@START_MENU_TOKEN@*/.title/*@END_MENU_TOKEN@*/)
                 
                 NavigationLink {
-                    HomeScreen()
+//                    HomeScreen()
+                    ActivityList()
                 } label: {
-                    Text("HomeScreen")
+//                    Text("HomeScreen")
+                    Text("ActivityList Screen")
                 } // NavigationLink
                 
                 Spacer()
