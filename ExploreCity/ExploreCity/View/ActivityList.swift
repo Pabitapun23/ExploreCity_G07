@@ -18,9 +18,29 @@ struct ActivityList: View {
                         ForEach(city.activityList){ activity in
                             NavigationLink(destination: ActivityDetailsScreen()){
                                 HStack(alignment: .top){
-                                    Image(systemName: "photo")
-                                        .resizable()
-                                        .frame(width: 50, height: 50)
+                                    if let imageURL = activity.photo {
+                                        AsyncImage(url: imageURL){ phase in
+                                            switch phase {
+                                            case .success(let image):
+                                                image
+                                                    .resizable()
+                                                    .frame(width: 100, height: 100)
+                                                    .clipShape(
+                                                        RoundedRectangle(cornerRadius: 10)
+                                                    )
+                                            default:
+                                                Image(systemName: "photo")
+                                                    .resizable()
+                                                    .aspectRatio(contentMode: .fit)
+                                                    .frame(width: 100, height: 100)
+                                            }
+                                        }
+                                    }else{
+                                        Image(systemName: "photo")
+                                            .resizable()
+                                            .aspectRatio(contentMode: .fit)
+                                            .frame(width: 100, height: 100)
+                                    }
                                     VStack(alignment: .leading){
                                         Text("\(activity.name)")
                                             .font(.headline)
@@ -28,12 +48,13 @@ struct ActivityList: View {
                                             .font(.subheadline)
                                     }
                                 }
+                                .padding(.vertical, 5.0)
                             }
                         }
                     }
                 }
             }
-            .navigationTitle("Activity")
+            .navigationTitle("Activity List")
         }
     }
 }
