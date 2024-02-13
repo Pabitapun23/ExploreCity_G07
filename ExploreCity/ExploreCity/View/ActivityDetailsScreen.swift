@@ -8,18 +8,18 @@
 import SwiftUI
 
 struct ActivityDetailsScreen: View {
+
+    var activity: Activity
+    
     var body: some View {
         
-        VStack {
-//            Text("Activity Details Screen")
-//                .font(/*@START_MENU_TOKEN@*/.title/*@END_MENU_TOKEN@*/)
-              
-            VStack(alignment: .leading) {
+        ScrollView {
+            VStack(alignment: .leading, spacing: 10) {
                 // Activity title
-                Text("Sunset Canoe Tour of the Waterfront")
-                    .font(.title3)
+                Text(activity.name)
+                    .font(.title2)
                     .fontWeight(.bold)
-                    .padding(.vertical, 10.0)
+                    .padding(.bottom, 10.0)
                
                 // Images
                 HStack {
@@ -35,9 +35,10 @@ struct ActivityDetailsScreen: View {
             
                 HStack {
                     // Price
-                    Text("Price: $52 per person")
-                        .font(.headline)
-                        .padding(.vertical, 10.0)
+                    Text("Host name: \(activity.host)")
+                        .font(.title3)
+                        .fontWeight(.bold)
+                    
                     Spacer()
                     
                     // Share
@@ -54,11 +55,33 @@ struct ActivityDetailsScreen: View {
                 } // HStack
                 
                 // Description
-                Text("Anim officia cillum magna consectetur cillum. Eu quis est exercitation officia cupidatat proident elit pariatur magna nisi consequat ea et sunt. Aliqua do consequat excepteur magna. Occaecat minim tempor dolore consectetur esse fugiat ut in Lorem dolor commodo. Tempor ipsum commodo excepteur qui irure Lorem enim duis commodo.")
+                Text(activity.desc)
                     .font(.body)
                     .multilineTextAlignment(.leading)
                     .padding(.vertical, 10.0)
                 
+                // Price
+                HStack {
+                    Text("Price: ")
+                        .fontWeight(.bold)
+                        .padding(.bottom, 10.0)
+                    
+                    Text("$\(String(format: "%.2f", activity.pricePerPerson)) per person")
+                        .padding(.bottom, 10.0)
+                } // HStack
+                
+                // Contact
+                HStack {
+                    Text("Contact: ")
+                        .fontWeight(.bold)
+                        .padding(.bottom, 10.0)
+                
+                    Text(activity.contactNumber)
+                        .padding(.bottom, 10.0)
+                    
+                    
+                } // HStack
+                  
                 // Rating
                 HStack {
                     ForEach(0..<5) {
@@ -69,28 +92,34 @@ struct ActivityDetailsScreen: View {
                     } // ForEach
                 } // HStack
                 
-                // Contact
-                Text("Contact: ")
-                    .padding(.top, 10.0)
+                // For ticket purchase
+                HStack {
+                    Spacer()
                     
-                Text("555-555-5555")
-                    .padding(.bottom, 10.0)
+                    // button
+                    Button("BUY TICKET") {
+                        
+                    }
+                    .padding(.all)
+                    .background(/*@START_MENU_TOKEN@*//*@PLACEHOLDER=View@*/Color.black/*@END_MENU_TOKEN@*/)
+                    .foregroundColor(/*@START_MENU_TOKEN@*/.white/*@END_MENU_TOKEN@*/)
+                    .cornerRadius(/*@START_MENU_TOKEN@*/8.0/*@END_MENU_TOKEN@*/)
                     
+                    Spacer()
+                } // HStack
+                .padding()
+                
+                
+                Spacer()
                 
             } // VStack
-            
-            
-    
-            
-            Spacer()
-            
-        } // VStack
-        .padding()
-        .navigationTitle("ActivityDetails Screen")
-        .navigationBarTitleDisplayMode(.inline)
+            .padding()
+            .navigationTitle("ActivityDetails Screen")
+            .navigationBarTitleDisplayMode(.inline)
+        }
     }
 }
 
 #Preview {
-    ActivityDetailsScreen()
+    ActivityDetailsScreen(activity: DataManager.shared.cityList[0].activityList[0])
 }
