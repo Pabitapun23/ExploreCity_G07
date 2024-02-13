@@ -13,20 +13,14 @@ struct ActivityDetailsScreen: View {
         VStack {
 //            Text("Activity Details Screen")
 //                .font(/*@START_MENU_TOKEN@*/.title/*@END_MENU_TOKEN@*/)
-            
-            // Activity title
-            Text("Sunset Canoe Tour of the Waterfront")
-                .font(.title3)
-                .fontWeight(.bold)
-                .padding(.vertical, 10.0)
-            
-            
+              
             VStack(alignment: .leading) {
-                // Price
-                Text("Price: $52 per person")
-                    .font(.headline)
-                    .padding(.bottom, 10.0)
-                
+                // Activity title
+                Text("Sunset Canoe Tour of the Waterfront")
+                    .font(.title3)
+                    .fontWeight(.bold)
+                    .padding(.vertical, 10.0)
+               
                 // Images
                 HStack {
                     Image("canoe1")
@@ -36,6 +30,27 @@ struct ActivityDetailsScreen: View {
                     Image("canoe2")
                         .resizable()
                         .frame(width: 180, height: 300)
+                } // HStack
+                
+            
+                HStack {
+                    // Price
+                    Text("Price: $52 per person")
+                        .font(.headline)
+                        .padding(.vertical, 10.0)
+                    Spacer()
+                    
+                    // Share
+                    Image(systemName: "arrowshape.turn.up.right")
+                        .resizable()
+                        .frame(width: 30.0, height: 30.0)
+                    
+                    // Favourite
+                    Image(systemName: "heart.fill")
+                        .resizable()
+                        .frame(width: 30.0, height: 30.0)
+                        .foregroundStyle(.red)
+                    
                 } // HStack
                 
                 // Description
@@ -55,24 +70,16 @@ struct ActivityDetailsScreen: View {
                 } // HStack
                 
                 // Contact
+                Text("Contact: ")
+                    .padding(.top, 10.0)
+                    
                 Text("555-555-5555")
-                    .padding(.vertical, 10.0)
+                    .padding(.bottom, 10.0)
                     
                 
             } // VStack
             
-            // Share and Favourite
-            HStack {
-                Spacer()
-                Image(systemName: "arrowshape.turn.up.right")
-                    .resizable()
-                    .frame(width: 30.0, height: 30.0)
-                Image(systemName: "heart.fill")
-                    .resizable()
-                    .frame(width: 30.0, height: 30.0)
-                    .foregroundStyle(.red)
-                
-            } // HStack
+            
     
             
             Spacer()
