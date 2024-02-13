@@ -16,7 +16,7 @@ struct HomeScreen: View {
             
             // Navigates to Activity details screen
             NavigationLink{
-                ActivityDetailsScreen()
+//                ActivityDetailsScreen()
             }label: {
                 Text("Go to ActivityDetails screen")
             }

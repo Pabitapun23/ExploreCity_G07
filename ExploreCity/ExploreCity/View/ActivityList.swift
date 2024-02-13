@@ -16,7 +16,7 @@ struct ActivityList: View {
                 ForEach(cityList){ city in
                     Section("Activity in \(city.name)"){
                         ForEach(city.activityList){ activity in
-                            NavigationLink(destination: ActivityDetailsScreen()){
+                            NavigationLink(destination: ActivityDetailsScreen(activity: activity)){
                                 HStack(alignment: .top){
                                     if let imageURL = activity.photo {
                                         AsyncImage(url: imageURL){ phase in
