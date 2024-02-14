@@ -14,6 +14,7 @@ struct ActivityDetailsScreen: View {
     @State private var quantity: Int = 1
     @State private var price: Double = 10.00
 
+
     var activity: Activity
     
     var body: some View {
@@ -47,14 +48,17 @@ struct ActivityDetailsScreen: View {
                     Spacer()
                     
                     // Share
-                    Image(systemName: "arrowshape.turn.up.right")
-                        .resizable()
-                        .frame(width: 30.0, height: 30.0)
+                    ShareLink(item: prepareShareableLink(), label: {
+                        Image(systemName: "square.and.arrow.up")
+                            .font(.system(size: 25))
+                            .foregroundColor(.black)
+                    }) // ShareLink
+                    
                     
                     // Favourite
                     Image(systemName: "heart.fill")
                         .resizable()
-                        .frame(width: 30.0, height: 30.0)
+                        .frame(width: 25.0, height: 25.0)
                         .foregroundStyle(.red)
                     
                 } // HStack
@@ -131,6 +135,13 @@ struct ActivityDetailsScreen: View {
             
         } // ScrollView
     } // body
+    
+    // Function to prepare shareable link
+    private func prepareShareableLink() -> String {
+        // Format the shareable data (activity name and price) as a string
+        let shareableData = "\(activity.name): $\(activity.pricePerPerson) per person"
+        return shareableData
+    }
     
 }
 
