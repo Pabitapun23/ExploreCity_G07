@@ -14,7 +14,6 @@ struct ActivityDetailsScreen: View {
     @State private var quantity: Int = 1
     @State private var price: Double = 10.00
 
-
     var activity: Activity
     
     var body: some View {
@@ -29,6 +28,7 @@ struct ActivityDetailsScreen: View {
                
                 // Images
                 HStack {
+                    Spacer()
                     Image("canoe1")
                         .resizable()
                         .frame(width: 180, height: 300)
@@ -36,6 +36,8 @@ struct ActivityDetailsScreen: View {
                     Image("canoe2")
                         .resizable()
                         .frame(width: 180, height: 300)
+                    Spacer()
+                    
                 } // HStack
                 
             
@@ -48,10 +50,11 @@ struct ActivityDetailsScreen: View {
                     Spacer()
                     
                     // Share
+                    // calling prepareShareableLink() func to share the datas
                     ShareLink(item: prepareShareableLink(), label: {
                         Image(systemName: "square.and.arrow.up")
                             .font(.system(size: 25))
-                            .foregroundColor(.black)
+                            .foregroundStyle(.black)
                     }) // ShareLink
                     
                     
@@ -84,9 +87,19 @@ struct ActivityDetailsScreen: View {
                     Text("Contact: ")
                         .fontWeight(.bold)
                         .padding(.bottom, 10.0)
-                
-                    Text(activity.contactNumber)
-                        .padding(.bottom, 10.0)
+                    
+                    // Contact Number - which is btn
+                    // Button that opens phone app and prepopulate the contact number
+                    // and user can also make a call
+                    Button(action: {
+                        // Handle tap gesture to open phone app
+                        if let phoneURL = URL(string: "tel://\(activity.contactNumber)") {
+                            UIApplication.shared.open(phoneURL, options: [:], completionHandler: nil)
+                        }
+                     }){
+                         Text(activity.contactNumber)
+                     } // Button
+                     .padding(.bottom, 10.0)
                     
                     
                 } // HStack
@@ -138,7 +151,7 @@ struct ActivityDetailsScreen: View {
     
     // Function to prepare shareable link
     private func prepareShareableLink() -> String {
-        // Format the shareable data (activity name and price) as a string
+        // shareable data includes activity name and price per person
         let shareableData = "\(activity.name): $\(activity.pricePerPerson) per person"
         return shareableData
     }
@@ -150,4 +163,5 @@ struct ActivityDetailsScreen: View {
 
 #Preview {
     ActivityDetailsScreen(activity: DataManager.shared.cityList[0].activityList[0])
+    
 }
