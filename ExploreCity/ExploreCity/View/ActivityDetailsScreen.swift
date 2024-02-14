@@ -8,6 +8,11 @@
 import SwiftUI
 
 struct ActivityDetailsScreen: View {
+    
+    @State private var isPresenting = false
+    @State private var customerName: String = ""
+    @State private var quantity: Int = 1
+    @State private var price: Double = 10.00
 
     var activity: Activity
     
@@ -98,13 +103,19 @@ struct ActivityDetailsScreen: View {
                     
                     // button
                     Button("BUY TICKET") {
-                        
+                        isPresenting = true
                     }
                     .padding(.all)
                     .background(/*@START_MENU_TOKEN@*//*@PLACEHOLDER=View@*/Color.black/*@END_MENU_TOKEN@*/)
                     .foregroundColor(/*@START_MENU_TOKEN@*/.white/*@END_MENU_TOKEN@*/)
                     .cornerRadius(/*@START_MENU_TOKEN@*/8.0/*@END_MENU_TOKEN@*/)
                     
+                    // To present a popover view, we can use Button to toggle a Boolean value
+                    // .sheet presents a popover whenever a boolean value is set to true
+                    .sheet(isPresented: $isPresenting, content: {
+                        TicketPurchaseForm(customerName: $customerName, quantity: $quantity, price: $price)
+                     })
+                                       
                     Spacer()
                 } // HStack
                 .padding()
@@ -116,9 +127,15 @@ struct ActivityDetailsScreen: View {
             .padding()
             .navigationTitle("ActivityDetails Screen")
             .navigationBarTitleDisplayMode(.inline)
-        }
-    }
+            
+            
+        } // ScrollView
+    } // body
+    
 }
+
+
+
 
 #Preview {
     ActivityDetailsScreen(activity: DataManager.shared.cityList[0].activityList[0])
