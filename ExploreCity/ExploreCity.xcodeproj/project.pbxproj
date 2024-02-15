@@ -22,6 +22,7 @@
 		500F3D192B7588A400EA6EF1 /* ExploreCityUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 500F3D182B7588A400EA6EF1 /* ExploreCityUITestsLaunchTests.swift */; };
 		500F3D262B758BDD00EA6EF1 /* HomeScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 500F3D252B758BDD00EA6EF1 /* HomeScreen.swift */; };
 		500F3D2A2B758C5D00EA6EF1 /* ActivityDetailsScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 500F3D292B758C5D00EA6EF1 /* ActivityDetailsScreen.swift */; };
+		505A2AF62B7DC16D00DBF7E6 /* ActivityListTile.swift in Sources */ = {isa = PBXBuildFile; fileRef = 505A2AF52B7DC16D00DBF7E6 /* ActivityListTile.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -60,6 +61,7 @@
 		500F3D182B7588A400EA6EF1 /* ExploreCityUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExploreCityUITestsLaunchTests.swift; sourceTree = "<group>"; };
 		500F3D252B758BDD00EA6EF1 /* HomeScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeScreen.swift; sourceTree = "<group>"; };
 		500F3D292B758C5D00EA6EF1 /* ActivityDetailsScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActivityDetailsScreen.swift; sourceTree = "<group>"; };
+		505A2AF52B7DC16D00DBF7E6 /* ActivityListTile.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActivityListTile.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -95,6 +97,7 @@
 				500F3D292B758C5D00EA6EF1 /* ActivityDetailsScreen.swift */,
 				500A7CBD2B7D3A0900131DDD /* TicketPurchaseForm.swift */,
 				500A7CCF2B7D974700131DDD /* RatingView.swift */,
+				505A2AF52B7DC16D00DBF7E6 /* ActivityListTile.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -304,6 +307,7 @@
 				500A7CBE2B7D3A0900131DDD /* TicketPurchaseForm.swift in Sources */,
 				500F3D2A2B758C5D00EA6EF1 /* ActivityDetailsScreen.swift in Sources */,
 				500F3CFC2B7588A300EA6EF1 /* ExploreCityApp.swift in Sources */,
+				505A2AF62B7DC16D00DBF7E6 /* ActivityListTile.swift in Sources */,
 				500F3D262B758BDD00EA6EF1 /* HomeScreen.swift in Sources */,
 				316D0DEE2B77407E004B280C /* ActivityList.swift in Sources */,
 				316D0DEC2B773E70004B280C /* City.swift in Sources */,

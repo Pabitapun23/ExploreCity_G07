@@ -13,11 +13,11 @@ class Activity:Identifiable{
     var desc: String
     var rating: Double
     var host: String
-    var photo: URL?
+    var photo: [URL]?
     var pricePerPerson: Double
     var contactNumber: String
     
-    init(name: String, desc: String, rating: Double, host: String, photo: URL?, pricePerPerson: Double, contactNumber: String) {
+    init(name: String, desc: String, rating: Double, host: String, photo: [URL]?, pricePerPerson: Double, contactNumber: String) {
         self.name = name
         self.desc = desc
         self.rating = rating
