@@ -16,6 +16,9 @@ struct FavoriteList: View {
                 if favorites.isEmpty {
                     Text("No favorites saved")
                 } else {
+                    Button(action: {removeAllFavorite()}, label: {
+                        Text("Remove All")
+                    })
                     List {
                         ForEach(favorites, id: \.self) { activityName in
                             NavigationLink(destination: ActivityDetailsScreen(activity: getActivityByName(activityName))) {
@@ -37,6 +40,15 @@ struct FavoriteList: View {
                 favorites = UserDefaults.standard.stringArray(forKey: "\(loggedInUserEmail)_favorites") ?? []
             }
         }
+    }
+    
+    private func removeAllFavorite(){
+        guard let loggedInUserEmail = UserDefaults.standard.string(forKey: "LoggedInUserEmail") else {
+            return
+        }
+        favorites = []
+        UserDefaults.standard.set(favorites, forKey: "\(loggedInUserEmail)_favorites")
+        
     }
     
     private func getActivityByName(_ name: String) -> Activity {
