@@ -22,6 +22,10 @@
 		500F3D192B7588A400EA6EF1 /* ExploreCityUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 500F3D182B7588A400EA6EF1 /* ExploreCityUITestsLaunchTests.swift */; };
 		500F3D262B758BDD00EA6EF1 /* HomeScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 500F3D252B758BDD00EA6EF1 /* HomeScreen.swift */; };
 		500F3D2A2B758C5D00EA6EF1 /* ActivityDetailsScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 500F3D292B758C5D00EA6EF1 /* ActivityDetailsScreen.swift */; };
+		5034D1262B7DD51800815FB0 /* FavoriteList.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5034D1252B7DD51800815FB0 /* FavoriteList.swift */; };
+		5034D1282B7DD54700815FB0 /* ProfileScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5034D1272B7DD54700815FB0 /* ProfileScreen.swift */; };
+		5034D12A2B7DD5B000815FB0 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5034D1292B7DD5B000815FB0 /* User.swift */; };
+		5034D12C2B7DD5DE00815FB0 /* LoginScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5034D12B2B7DD5DE00815FB0 /* LoginScreen.swift */; };
 		505A2AF62B7DC16D00DBF7E6 /* ActivityListTile.swift in Sources */ = {isa = PBXBuildFile; fileRef = 505A2AF52B7DC16D00DBF7E6 /* ActivityListTile.swift */; };
 		505A2AF82B7DC99100DBF7E6 /* ImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 505A2AF72B7DC99100DBF7E6 /* ImageView.swift */; };
 /* End PBXBuildFile section */
@@ -62,6 +66,10 @@
 		500F3D182B7588A400EA6EF1 /* ExploreCityUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExploreCityUITestsLaunchTests.swift; sourceTree = "<group>"; };
 		500F3D252B758BDD00EA6EF1 /* HomeScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeScreen.swift; sourceTree = "<group>"; };
 		500F3D292B758C5D00EA6EF1 /* ActivityDetailsScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActivityDetailsScreen.swift; sourceTree = "<group>"; };
+		5034D1252B7DD51800815FB0 /* FavoriteList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoriteList.swift; sourceTree = "<group>"; };
+		5034D1272B7DD54700815FB0 /* ProfileScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileScreen.swift; sourceTree = "<group>"; };
+		5034D1292B7DD5B000815FB0 /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
+		5034D12B2B7DD5DE00815FB0 /* LoginScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginScreen.swift; sourceTree = "<group>"; };
 		505A2AF52B7DC16D00DBF7E6 /* ActivityListTile.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActivityListTile.swift; sourceTree = "<group>"; };
 		505A2AF72B7DC99100DBF7E6 /* ImageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -101,6 +109,9 @@
 				500A7CCF2B7D974700131DDD /* RatingView.swift */,
 				505A2AF52B7DC16D00DBF7E6 /* ActivityListTile.swift */,
 				505A2AF72B7DC99100DBF7E6 /* ImageView.swift */,
+				5034D1252B7DD51800815FB0 /* FavoriteList.swift */,
+				5034D1272B7DD54700815FB0 /* ProfileScreen.swift */,
+				5034D12B2B7DD5DE00815FB0 /* LoginScreen.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -111,6 +122,7 @@
 				316D0DE72B773E47004B280C /* Activity.swift */,
 				316D0DE92B773E52004B280C /* DataManager.swift */,
 				316D0DEB2B773E70004B280C /* City.swift */,
+				5034D1292B7DD5B000815FB0 /* User.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -304,14 +316,18 @@
 			buildActionMask = 2147483647;
 			files = (
 				505A2AF82B7DC99100DBF7E6 /* ImageView.swift in Sources */,
+				5034D1282B7DD54700815FB0 /* ProfileScreen.swift in Sources */,
 				316D0DE82B773E48004B280C /* Activity.swift in Sources */,
 				316D0DEA2B773E52004B280C /* DataManager.swift in Sources */,
 				500F3CFE2B7588A300EA6EF1 /* ContentView.swift in Sources */,
+				5034D12C2B7DD5DE00815FB0 /* LoginScreen.swift in Sources */,
 				500A7CD02B7D974700131DDD /* RatingView.swift in Sources */,
 				500A7CBE2B7D3A0900131DDD /* TicketPurchaseForm.swift in Sources */,
 				500F3D2A2B758C5D00EA6EF1 /* ActivityDetailsScreen.swift in Sources */,
+				5034D12A2B7DD5B000815FB0 /* User.swift in Sources */,
 				500F3CFC2B7588A300EA6EF1 /* ExploreCityApp.swift in Sources */,
 				505A2AF62B7DC16D00DBF7E6 /* ActivityListTile.swift in Sources */,
+				5034D1262B7DD51800815FB0 /* FavoriteList.swift in Sources */,
 				500F3D262B758BDD00EA6EF1 /* HomeScreen.swift in Sources */,
 				316D0DEE2B77407E004B280C /* ActivityList.swift in Sources */,
 				316D0DEC2B773E70004B280C /* City.swift in Sources */,

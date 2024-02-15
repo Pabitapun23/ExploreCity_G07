@@ -8,29 +8,44 @@
 import SwiftUI
 
 struct ContentView: View {
+    @State private var isLoggedIn: Bool = false
+    
     var body: some View {
-        NavigationStack {
-            VStack {
-                
-                Text("This is Login Screen")
-                    .font(/*@START_MENU_TOKEN@*/.title/*@END_MENU_TOKEN@*/)
-                
-                NavigationLink {
-//                    HomeScreen()
+        if isLoggedIn {
+            // If logged in, show the TabView with navigation
+            TabView {
+                NavigationView {
                     ActivityList()
-                } label: {
-//                    Text("HomeScreen")
-                    Text("ActivityList Screen")
-                } // NavigationLink
+                        //.navigationTitle("Activity List")
+                }
+                .tabItem {
+                    Image(systemName: "list.bullet")
+                    Text("Activities")
+                }
                 
-                Spacer()
+                NavigationView {
+                    FavoriteList()
+                       // .navigationTitle("Favorites")
+                }
+                .tabItem {
+                    Image(systemName: "heart")
+                    Text("Favorites")
+                }
                 
-            } // VStack
-            .padding()
-            .navigationTitle("Login Screen")
-            
-        } // NavigationStack
-    }
+                NavigationView {
+                    ProfileScreen(isLoggedIn: $isLoggedIn)
+                      //  .navigationTitle("Profile")
+                }
+                .tabItem {
+                    Image(systemName: "person")
+                    Text("Profile")
+                }
+            }
+        } else {
+            // If not logged in, show the LoginScreen
+            LoginScreen(isLoggedIn: $isLoggedIn)
+        }
+    } // body
 }
 
 #Preview {
