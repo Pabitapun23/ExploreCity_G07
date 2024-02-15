@@ -15,8 +15,13 @@ struct ActivityDetailsScreen: View {
     @State private var price: Double = 10.00
     @State private var selectedImageURL: URL?
     @State private var isFavorite: Bool = false
+    @State private var errorMsg: String = ""
+    @State private var confirmMsg: String = ""
 
     var activity: Activity
+    
+    // reservation list
+    @EnvironmentObject var tickets: PurchasedTicketsList
     
     var body: some View {
         
@@ -173,7 +178,7 @@ struct ActivityDetailsScreen: View {
                     // To present a popover view, we can use Button to toggle a Boolean value
                     // .sheet presents a popover whenever a boolean value is set to true
                     .sheet(isPresented: $isPresenting, content: {
-                        TicketPurchaseForm(customerName: $customerName, quantity: $quantity, price: $price)
+                        TicketPurchaseForm(customerName: $customerName, quantity: $quantity, totalPrice: $price, errMsg: $errorMsg, confirmMsg: $confirmMsg, activity: activity)
                      })
                                        
                     Spacer()
@@ -221,6 +226,8 @@ struct ActivityDetailsScreen: View {
         return shareableData
     } // func
     
+    
+    // function to add to favList
     func saveFavorite() {
         guard let loggedInUserEmail = UserDefaults.standard.string(forKey: "LoggedInUserEmail") else {
             return
@@ -233,6 +240,8 @@ struct ActivityDetailsScreen: View {
         }
     } // func
 
+    
+    // function to remove from favList
     func removeFavorite() {
         guard let loggedInUserEmail = UserDefaults.standard.string(forKey: "LoggedInUserEmail") else {
             return
@@ -244,6 +253,9 @@ struct ActivityDetailsScreen: View {
             UserDefaults.standard.set(favorites, forKey: "\(loggedInUserEmail)_favorites")
         }
     } // func
+    
+    
+    // function to purchase ticket
     
 }
 
