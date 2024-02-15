@@ -19,8 +19,6 @@ struct TicketPurchaseForm: View {
     var activity: Activity
     @State var ticketsByUser: [Ticket] = []
     
-    // reservation list
-//    @EnvironmentObject var ticketsPurchasedList: PurchasedTicketsList
     
     var body: some View {
         VStack() {

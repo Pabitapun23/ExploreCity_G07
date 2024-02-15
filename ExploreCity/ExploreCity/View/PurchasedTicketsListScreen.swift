@@ -8,7 +8,6 @@
 import SwiftUI
 
 struct PurchasedTicketsListScreen: View {
-//    @EnvironmentObject var purchasedTickets: PurchasedTicketsList
   
     @State private var purchasedTickets: [Ticket] = []
     
