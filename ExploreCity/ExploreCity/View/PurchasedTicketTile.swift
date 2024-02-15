@@ -41,7 +41,7 @@ struct PurchasedTicketTile: View {
                     .foregroundColor(Color.green)
                 
                 HStack {
-                    Text("Confirmaiton ID:")
+                    Text("Confirmation ID:")
                         .font(.subheadline)
                         .fontWeight(/*@START_MENU_TOKEN@*/.bold/*@END_MENU_TOKEN@*/)
                     Text(ticket.confirmationNumber)

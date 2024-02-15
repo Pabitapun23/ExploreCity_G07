@@ -51,11 +51,11 @@ struct ActivityDetailsScreen: View {
                                             .aspectRatio(contentMode: .fit)
                                         
                                     case .empty:
-                                        Image(systemName: "building.2.crop.circle")
+                                        Image(systemName: "photo")
                                     case .failure(_):
-                                        Image(systemName: "building.2.crop.circle")
+                                        Image(systemName: "photo")
                                     @unknown default:
-                                        Image(systemName: "building.2.crop.circle")
+                                        Image(systemName: "photo")
                                     }
                                 } // AsyncImage
 
@@ -83,11 +83,13 @@ struct ActivityDetailsScreen: View {
                         ShareLink(item: prepareShareableLink(), label: {
                             Image(systemName: "square.and.arrow.up")
                                 .font(.system(size: 25))
-                                .foregroundStyle(.black)
+                                .foregroundColor(Color.primary) // Use Color.primary for dynamic color
                         }) // ShareLink
                         
                         
                         // Favourite button
+                        
+                        
                         Button(action: {
                             isFavorite.toggle()
                             if isFavorite {
@@ -99,9 +101,9 @@ struct ActivityDetailsScreen: View {
                             }
                         }) {
                             Image(systemName: isFavorite ? "heart.fill" : "heart")
-                            .resizable()
-                            .frame(width: 30.0, height: 30.0)
-                            .foregroundColor(isFavorite ? .red : .black)
+                                .resizable()
+                                .frame(width: 30.0, height: 30.0)
+                                .foregroundColor(isFavorite ? .red : Color.primary) // Use Color.primary for dynamic color
                         }
                         .padding(.trailing, 10.0)
                     } // section
@@ -164,9 +166,9 @@ struct ActivityDetailsScreen: View {
                         isPresenting = true
                     }
                     .padding(.all)
-                    .background(/*@START_MENU_TOKEN@*//*@PLACEHOLDER=View@*/Color.black/*@END_MENU_TOKEN@*/)
-                    .foregroundColor(/*@START_MENU_TOKEN@*/.white/*@END_MENU_TOKEN@*/)
-                    .cornerRadius(/*@START_MENU_TOKEN@*/8.0/*@END_MENU_TOKEN@*/)
+                    .background(Color.primary == .white ? Color.black : Color.white) // Use black background in light mode, white background in dark mode
+                    .foregroundColor(Color.primary == .black ? .white : .black) // Use white text on dark background, black text on light background
+                    .cornerRadius(8.0)
                     
                     // To present a popover view, we can use Button to toggle a Boolean value
                     // .sheet presents a popover whenever a boolean value is set to true

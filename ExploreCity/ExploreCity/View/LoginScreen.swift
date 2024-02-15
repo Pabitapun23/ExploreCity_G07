@@ -22,7 +22,7 @@ struct LoginScreen: View {
     var body: some View {
         NavigationView {
             VStack(spacing: 15) {
-                Image("logo_light")
+                Image("logo")
                     .resizable()
                     .frame(width: 150.0, height: 150.0)
                 
