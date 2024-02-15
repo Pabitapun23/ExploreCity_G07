@@ -105,14 +105,7 @@ struct ActivityDetailsScreen: View {
                 } // HStack
                   
                 // Rating
-                HStack {
-                    ForEach(0..<5) {
-                        _ in Image(systemName: "star.fill")
-                            .resizable()
-                            .frame(width: 30, height: 30)
-                            .foregroundStyle(.yellow)
-                    } // ForEach
-                } // HStack
+                RatingView(rating: .constant(activity.rating))
                 
                 // For ticket purchase
                 HStack {
