@@ -29,13 +29,44 @@ struct ActivityDetailsScreen: View {
                 // Images
                 HStack {
                     Spacer()
-                    Image("canoe1")
-                        .resizable()
-                        .frame(width: 180, height: 300)
+//                    if let imageURL = activity.photo {
+//                        AsyncImage(url: imageURL) { phase in
+//                            switch phase {
+//                            case .success(let image) :
+//                                image
+//                                    .resizable()
+//                                    .frame(width: 180, height: 300)
+//                            @unknown default:
+//                                Image(systemName: "building.2.crop.circle")
+//                            }
+//                        }
+//                    }
+                    if let photoURLs = activity.photo {
+                        ForEach(photoURLs, id: \.self) { url in
+                            // Load and display the photo from the URL
+                            AsyncImage(url: url) { phase in
+                                switch phase {
+                                case .success(let image) :
+                                    image
+                                        .resizable()
+                                        .frame(width: 180, height: 300)
+                                case .empty:
+                                    Image(systemName: "building.2.crop.circle")
+                                case .failure(_):
+                                    Image(systemName: "building.2.crop.circle")
+                                @unknown default:
+                                    Image(systemName: "building.2.crop.circle")
+                                }
+                            } // AsyncImage
+
+                        } // ForEach
+                    } // photoURLs
                     
-                    Image("canoe2")
-                        .resizable()
-                        .frame(width: 180, height: 300)
+                
+                    
+//                    Image("canoe2")
+//                        .resizable()
+//                        .frame(width: 180, height: 300)
                     Spacer()
                     
                 } // HStack
