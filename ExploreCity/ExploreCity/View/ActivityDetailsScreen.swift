@@ -14,7 +14,7 @@ struct ActivityDetailsScreen: View {
     @State private var quantity: Int = 1
     @State private var price: Double = 10.00
     @State private var selectedImageURL: URL?
-    
+    @State private var isFavorite: Bool = false
 
     var activity: Activity
     
@@ -83,11 +83,30 @@ struct ActivityDetailsScreen: View {
                     }) // ShareLink
                     
                     
-                    // Favourite
-                    Image(systemName: "heart.fill")
+//                    // Favourite
+//                    Image(systemName: "heart.fill")
+//                        .resizable()
+//                        .frame(width: 25.0, height: 25.0)
+//                        .foregroundStyle(.red)
+                    
+                    // Favourite button
+                    Button(action: {
+                        isFavorite.toggle()
+                        if isFavorite {
+                        // Save the activity as a favorite
+                        saveFavorite()
+                        } else {
+                        // Remove the activity from favorites
+                        removeFavorite()
+                        }
+                    }) {
+                        Image(systemName: isFavorite ? "heart.fill" : "heart")
                         .resizable()
-                        .frame(width: 25.0, height: 25.0)
-                        .foregroundStyle(.red)
+                        .frame(width: 30.0, height: 30.0)
+                        .foregroundColor(isFavorite ? .red : .black)
+                    }
+                    .padding()
+                    Spacer()
                     
                 } // HStack
                 
@@ -168,6 +187,17 @@ struct ActivityDetailsScreen: View {
             .padding()
             .navigationTitle("ActivityDetails Screen")
             .navigationBarTitleDisplayMode(.inline)
+            .onAppear {
+                // Check if the current activity is in the user's favorites
+                guard let loggedInUserEmail = UserDefaults.standard.string(forKey: "LoggedInUserEmail") else {
+                    return
+                }
+                let favorites = UserDefaults.standard.stringArray(forKey: "\(loggedInUserEmail)_favorites") ?? []
+                if favorites.contains(activity.name) {
+                    isFavorite = true
+                }
+            }
+
             
         } // ScrollView
         .sheet(isPresented: Binding<Bool>(
@@ -189,6 +219,30 @@ struct ActivityDetailsScreen: View {
         // shareable data includes activity name and price per person
         let shareableData = "\(activity.name): $\(activity.pricePerPerson) per person"
         return shareableData
+    } // func
+    
+    func saveFavorite() {
+        guard let loggedInUserEmail = UserDefaults.standard.string(forKey: "LoggedInUserEmail") else {
+            return
+        }
+        // Save the activity name as a favorite for the logged-in user
+        var favorites = UserDefaults.standard.stringArray(forKey: "\(loggedInUserEmail)_favorites") ?? []
+        if !favorites.contains(activity.name) {
+            favorites.append(activity.name)
+            UserDefaults.standard.set(favorites, forKey: "\(loggedInUserEmail)_favorites")
+        }
+    } // func
+
+    func removeFavorite() {
+        guard let loggedInUserEmail = UserDefaults.standard.string(forKey: "LoggedInUserEmail") else {
+            return
+        }
+        // Remove the activity name from favorites for the logged-in user
+        var favorites = UserDefaults.standard.stringArray(forKey: "\(loggedInUserEmail)_favorites") ?? []
+        if let index = favorites.firstIndex(of: activity.name) {
+            favorites.remove(at: index)
+            UserDefaults.standard.set(favorites, forKey: "\(loggedInUserEmail)_favorites")
+        }
     } // func
     
 }
