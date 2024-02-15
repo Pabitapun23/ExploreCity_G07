@@ -30,6 +30,7 @@
 		5034D1372B7DFD0600815FB0 /* PurchasedTicketsList.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5034D1362B7DFD0600815FB0 /* PurchasedTicketsList.swift */; };
 		5034D1392B7E09D900815FB0 /* PurchasedTicketsListScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5034D1382B7E09D900815FB0 /* PurchasedTicketsListScreen.swift */; };
 		5034D13B2B7E0EAF00815FB0 /* TicketReceiptScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5034D13A2B7E0EAF00815FB0 /* TicketReceiptScreen.swift */; };
+		5034D13D2B7E879400815FB0 /* PurchasedTicketTile.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5034D13C2B7E879400815FB0 /* PurchasedTicketTile.swift */; };
 		505A2AF62B7DC16D00DBF7E6 /* ActivityListTile.swift in Sources */ = {isa = PBXBuildFile; fileRef = 505A2AF52B7DC16D00DBF7E6 /* ActivityListTile.swift */; };
 		505A2AF82B7DC99100DBF7E6 /* ImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 505A2AF72B7DC99100DBF7E6 /* ImageView.swift */; };
 /* End PBXBuildFile section */
@@ -78,6 +79,7 @@
 		5034D1362B7DFD0600815FB0 /* PurchasedTicketsList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PurchasedTicketsList.swift; sourceTree = "<group>"; };
 		5034D1382B7E09D900815FB0 /* PurchasedTicketsListScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PurchasedTicketsListScreen.swift; sourceTree = "<group>"; };
 		5034D13A2B7E0EAF00815FB0 /* TicketReceiptScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TicketReceiptScreen.swift; sourceTree = "<group>"; };
+		5034D13C2B7E879400815FB0 /* PurchasedTicketTile.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PurchasedTicketTile.swift; sourceTree = "<group>"; };
 		505A2AF52B7DC16D00DBF7E6 /* ActivityListTile.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActivityListTile.swift; sourceTree = "<group>"; };
 		505A2AF72B7DC99100DBF7E6 /* ImageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -122,6 +124,7 @@
 				5034D12B2B7DD5DE00815FB0 /* LoginScreen.swift */,
 				5034D1382B7E09D900815FB0 /* PurchasedTicketsListScreen.swift */,
 				5034D13A2B7E0EAF00815FB0 /* TicketReceiptScreen.swift */,
+				5034D13C2B7E879400815FB0 /* PurchasedTicketTile.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -329,6 +332,7 @@
 			files = (
 				505A2AF82B7DC99100DBF7E6 /* ImageView.swift in Sources */,
 				5034D1282B7DD54700815FB0 /* ProfileScreen.swift in Sources */,
+				5034D13D2B7E879400815FB0 /* PurchasedTicketTile.swift in Sources */,
 				316D0DE82B773E48004B280C /* Activity.swift in Sources */,
 				316D0DEA2B773E52004B280C /* DataManager.swift in Sources */,
 				500F3CFE2B7588A300EA6EF1 /* ContentView.swift in Sources */,

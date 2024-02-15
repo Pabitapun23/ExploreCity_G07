@@ -13,12 +13,14 @@ struct TicketPurchaseForm: View {
     @Binding var totalPrice: Double
     @Binding var errMsg: String
     @Binding var confirmMsg: String
+    @Binding var loggedInUserEmail: String
     
     
     var activity: Activity
+    @State var ticketsByUser: [Ticket] = []
     
     // reservation list
-    @EnvironmentObject var ticketsPurchasedList: PurchasedTicketsList
+//    @EnvironmentObject var ticketsPurchasedList: PurchasedTicketsList
     
     var body: some View {
         VStack() {
@@ -90,6 +92,7 @@ struct TicketPurchaseForm: View {
             
         } // VStack
         .padding()
+        
     } // body
     
     
@@ -110,10 +113,12 @@ struct TicketPurchaseForm: View {
  
         totalPrice = Double(quantity) * activity.pricePerPerson
         
-        // add to ticketPurchasedList
-        let newTicket = Ticket(customerName: customerName, quantity: quantity, activityName: activity.name, totalPrice: totalPrice)
+        guard let loggedInUserEmail = UserDefaults.standard.string(forKey: "LoggedInUserEmail") else {
+            return
+        }
         
-        ticketsPurchasedList.tickets.append(newTicket)
+        let newTicket = Ticket(customerName: customerName, quantity: quantity, activityName: activity.name, totalPrice: totalPrice, activityImage: activity.photo, userEmail: loggedInUserEmail)
+        addTicket(newTicket, forUser: loggedInUserEmail)
         
         confirmMsg = "Ticket purchased successfully."
       
@@ -122,9 +127,31 @@ struct TicketPurchaseForm: View {
         quantity = 1
         totalPrice = 1 * activity.pricePerPerson
         
+    } // func
+    
+    func addTicket(_ ticket: Ticket, forUser userEmail: String) {
+        // Load existing tickets for the user or create an empty array if there are no tickets yet
+        var userTickets: [Ticket]
+        if let ticketsData = UserDefaults.standard.data(forKey: "purchasedTickets_\(userEmail)"),
+           let decodedTickets = try? JSONDecoder().decode([Ticket].self, from: ticketsData) {
+            userTickets = decodedTickets
+        } else {
+            userTickets = []
+        }
+        
+        // Append the new ticket to the array
+        userTickets.append(ticket)
+        
+        // Save the updated array back to UserDefaults
+        if let encoded = try? JSONEncoder().encode(userTickets) {
+            UserDefaults.standard.set(encoded, forKey: "purchasedTickets_\(userEmail)")
+        }
     }
+
 }
 
+
+
 #Preview {
-    TicketPurchaseForm(customerName: .constant("John Doe"), quantity: .constant(1), totalPrice: .constant(10.00), errMsg: .constant(""), confirmMsg: .constant(""), activity: Activity(name: "Example Activity", desc: "Description", rating: 4.5, host: "Host", photo: nil, pricePerPerson: 20.0, contactNumber: "1234567890"))
+    TicketPurchaseForm(customerName: .constant("John Doe"), quantity: .constant(1), totalPrice: .constant(10.00), errMsg: .constant(""), confirmMsg: .constant(""), loggedInUserEmail: .constant(""), activity: Activity(name: "Example Activity", desc: "Description", rating: 4.5, host: "Host", photo: nil, pricePerPerson: 20.0, contactNumber: "1234567890"))
 }
