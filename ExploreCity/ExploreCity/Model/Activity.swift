@@ -7,7 +7,7 @@
 
 import Foundation
 
-class Activity:Identifiable{
+class Activity: Identifiable{
     var id: UUID = UUID()
     var name: String
     var desc: String

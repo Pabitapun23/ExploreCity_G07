@@ -11,7 +11,7 @@ import SwiftUI
 struct ExploreCityApp: App {
     var body: some Scene {
         WindowGroup {
-            ContentView()
+            ContentView().environmentObject(PurchasedTicketsList.purchasedTickets)
         }
     }
 }

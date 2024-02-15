@@ -21,19 +21,39 @@ struct LoginScreen: View {
     
     var body: some View {
         NavigationView {
-            VStack {
+            VStack(spacing: 15) {
+                HStack {
+                    Text("Welcome to")
+                        .font(.system(size: 32))
+                        .fontWeight(.bold)
+                    
+                    Text("ExploreCity")
+                        .font(.system(size: 32))
+                        .fontWeight(.bold)
+                        .foregroundColor(Color.green)
+                } // HStack
+                .padding(.bottom, 40.0)
+                
+                Text("Login")
+                    .font(.title)
+                    .fontWeight(.bold)
+                
                 TextField("Email", text: $email)
-                    .padding()
+                    .padding(.horizontal)
                     .textFieldStyle(RoundedBorderTextFieldStyle())
                     .autocorrectionDisabled(true)
+                    .textInputAutocapitalization(.never)
+                    .keyboardType(.emailAddress)
                 
                 SecureField("Password", text: $password)
-                    .padding()
+                    .padding(.horizontal)
                     .textFieldStyle(RoundedBorderTextFieldStyle())
                     .autocorrectionDisabled(true)
+                    .textInputAutocapitalization(.never)
+                    .keyboardType(.default)
                 
                 Toggle("Remember Me", isOn: $rememberMe)
-                    .padding()
+                    .padding(.horizontal)
                 
                 if let errorMessage = errorMessage {
                     Text(errorMessage)
@@ -44,14 +64,20 @@ struct LoginScreen: View {
                 Button("Login") {
                     login()
                 }
-                .padding()
+                .padding(.horizontal, 20.0)
+                .padding(.vertical, 13.0)
+                .background(Color.green)
+                .foregroundColor(/*@START_MENU_TOKEN@*/.white/*@END_MENU_TOKEN@*/)
+                .cornerRadius(/*@START_MENU_TOKEN@*/8.0/*@END_MENU_TOKEN@*/)
                 
                 NavigationLink(destination: ActivityList(), isActive: $isLoggedIn) {
                     EmptyView()
                 }
                 .isDetailLink(false)
                 .hidden()
-            }
+                  
+                
+            } // VStack
             .padding()
             .onAppear {
                 // Retrieve rememberMe status from UserDefaults
@@ -68,9 +94,11 @@ struct LoginScreen: View {
                         login()
                     }
                 }
-            }
-        }
-    }
+            } // .onAppear
+            
+        } // NavigationView
+        
+    } // body
     
     func login() {
         for user in users {
@@ -94,9 +122,10 @@ struct LoginScreen: View {
         }
         // If login fails, display error message
         errorMessage = "Invalid credentials"
-    }
+    } // func
 }
 
 #Preview {
-    LoginScreen(isLoggedIn: .constant(false)) // Pass a binding to isLoggedIn
+    // Pass a binding to isLoggedIn
+    LoginScreen(isLoggedIn: .constant(false))
 }

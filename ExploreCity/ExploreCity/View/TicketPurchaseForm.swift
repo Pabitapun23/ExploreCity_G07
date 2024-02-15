@@ -10,7 +10,15 @@ import SwiftUI
 struct TicketPurchaseForm: View {
     @Binding var customerName: String
     @Binding var quantity: Int
-    @Binding var price: Double
+    @Binding var totalPrice: Double
+    @Binding var errMsg: String
+    @Binding var confirmMsg: String
+    
+    
+    var activity: Activity
+    
+    // reservation list
+    @EnvironmentObject var ticketsPurchasedList: PurchasedTicketsList
     
     var body: some View {
         VStack() {
@@ -23,13 +31,15 @@ struct TicketPurchaseForm: View {
                 HStack {
                     Text("Activity name:")
                         .fontWeight(.bold)
-                    Text("Activity 1")
+                    Text(activity.name)
                 }
                 
                 Text("Customer Name:")
                     .fontWeight(.bold)
                 TextField("Enter your name", text: $customerName)
                     .textFieldStyle(.roundedBorder)
+                    .textInputAutocapitalization(.never)
+                    .keyboardType(.default)
                 
                 HStack {
                     Text("Quantity")
@@ -42,14 +52,26 @@ struct TicketPurchaseForm: View {
                 HStack {
                     Text("Price:")
                         .fontWeight(.bold)
-                    Text("$10.00")
+                    
+                    Text("$\(Double(quantity) * (activity.pricePerPerson), specifier: "%.2f")")
+               
+                    
                 } // HStack
+                
+                Text(errMsg)
+                    .foregroundStyle(.red)
+                
+                Text(confirmMsg)
+                    .foregroundStyle(.green)
                 
                 HStack {
                     Spacer()
                     
                     Button {
-//                        NavigationLink(destination: ReceiptScreen(), label: "Next")
+                        
+                        // call function to purchase ticket
+                        buyTicket()
+                        
                     } label: {
                         Text("Buy Ticket")
                     } // button
@@ -69,8 +91,40 @@ struct TicketPurchaseForm: View {
         } // VStack
         .padding()
     } // body
+    
+    
+    // function to purchase ticket
+    
+    func buyTicket() {
+
+          
+        // form validation
+        if(customerName.isEmpty) {
+            errMsg = "ERROR - customer name must be provided"
+            confirmMsg = ""
+            return
+        } else {
+            errMsg = ""
+            print("Ticket purchased successfully.")
+        }
+ 
+        totalPrice = Double(quantity) * activity.pricePerPerson
+        
+        // add to ticketPurchasedList
+        let newTicket = Ticket(customerName: customerName, quantity: quantity, activityName: activity.name, totalPrice: totalPrice)
+        
+        ticketsPurchasedList.tickets.append(newTicket)
+        
+        confirmMsg = "Ticket purchased successfully."
+      
+        // reset fields
+        customerName = ""
+        quantity = 1
+        totalPrice = 1 * activity.pricePerPerson
+        
+    }
 }
 
 #Preview {
-    TicketPurchaseForm(customerName: .constant("John Doe"), quantity: .constant(1), price: .constant(10.00))
+    TicketPurchaseForm(customerName: .constant("John Doe"), quantity: .constant(1), totalPrice: .constant(10.00), errMsg: .constant(""), confirmMsg: .constant(""), activity: Activity(name: "Example Activity", desc: "Description", rating: 4.5, host: "Host", photo: nil, pricePerPerson: 20.0, contactNumber: "1234567890"))
 }
