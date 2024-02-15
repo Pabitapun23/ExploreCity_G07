@@ -20,12 +20,12 @@ class DataManager {
                                  rating: 5.0,
                                  host: "Danielle",
                                  photo: [URL(string: "https://a0.muscache.com/im/pictures/lombard/MtTemplate-68755-media_library/original/0f1c6e81-3ec3-4a64-a8ba-64e4b8814cd4.jpeg?im_w=320")!, 
-                                         URL(string: "https://a0.muscache.com/im/pictures/lombard/MtTemplate-68755-media_library/original/0f1c6e81-3ec3-4a64-a8ba-64e4b8814cd4.jpeg?im_w=320")!], pricePerPerson: 198.0, contactNumber: "+1(416)123-4567"),
+                                         URL(string: "https://a0.muscache.com/im/pictures/lombard/MtTemplate-68755-media_library/original/60275656-9a54-46c2-901d-6b44ee99204b.jpeg?im_w=1440")!], pricePerPerson: 198.0, contactNumber: "+1(416)123-4567"),
                         
-                        Activity(name: "Show Me The City- Toronto Walking Tour", 
+                        Activity(name: "Show Me The City - Toronto Walking Tour",
                                  desc: "About the tour:\nOn our 3-hour small group walking tour of Toronto you will see and learn about city's diversity, history and future. You will also see landmarks such as Harbourfront, Brookfield Place & The Entertainment District.\nThe walk ends at the St. Lawrence Market, considered one the world's great food markets, so bring an appetite.\n\nThe tour does go into Toronto's PATH an above and below ground labyrinth used by thousands of people daily.\n\nBring your camera, your walking shoes and your questions!", rating: 4.95, host: "Dave",
                                  photo: [URL(string: "https://a0.muscache.com/im/pictures/d1e179d3-36b1-4952-a1ac-cec3388585e9.jpg?im_w=320")!,
-                                         URL(string: "https://a0.muscache.com/im/pictures/lombard/MtTemplate-68755-media_library/original/0f1c6e81-3ec3-4a64-a8ba-64e4b8814cd4.jpeg?im_w=320")!
+                                         URL(string: "https://a0.muscache.com/im/pictures/94458bdc-59e2-468c-ae23-7a4165b91357.jpg?im_w=720")!
                                         ], pricePerPerson: 48.0,
                                  contactNumber: "+1(416)111-2222"),
                         
@@ -34,7 +34,7 @@ class DataManager {
                                  rating: 4.6, 
                                  host: "Nico",
                                  photo: [URL(string: "https://a0.muscache.com/im/pictures/lombard/MtTemplate-4255855-media_library/original/153bc39b-4b6e-4b66-873b-c91396b2d137.jpeg?im_w=320")!, 
-                                         URL(string: "https://a0.muscache.com/im/pictures/lombard/MtTemplate-68755-media_library/original/0f1c6e81-3ec3-4a64-a8ba-64e4b8814cd4.jpeg?im_w=320")!],
+                                         URL(string: "https://a0.muscache.com/im/pictures/lombard/MtTemplate-4510709-media_library/original/1242cf13-56c5-4586-9db9-6cf2b5534262.jpeg?im_w=720")!],
                                  pricePerPerson: 79.0,
                                  contactNumber: "+1(416)135-2468")
                     ]),
@@ -44,7 +44,7 @@ class DataManager {
                                  rating: 5.0,
                                  host: "Christopher",
                                  photo: [URL(string: "https://a0.muscache.com/im/pictures/lombard/MtTemplate-3577382-media_library/original/307f98cc-bff4-45d2-8c0c-d4d4a903cbd4.jpeg?im_w=320")!, 
-                                         URL(string: "https://a0.muscache.com/im/pictures/lombard/MtTemplate-68755-media_library/original/0f1c6e81-3ec3-4a64-a8ba-64e4b8814cd4.jpeg?im_w=320")!],
+                                         URL(string: "https://a0.muscache.com/im/pictures/lombard/MtTemplate-3577382-media_library/original/1997a1be-fb06-42c8-8f7d-66fe48bdd5bd.jpeg?im_w=720")!],
                                  pricePerPerson: 68.0,
                                  contactNumber: "+1(135)246-8024"),
                         
@@ -53,7 +53,7 @@ class DataManager {
                                  rating: 4.97,
                                  host: "Natalie Javier And Friends",
                                  photo: [URL(string: "https://a0.muscache.com/im/pictures/lombard/MtTemplate-252081-media_library/original/ed2c06df-2235-48d1-a7bd-fe14c3b50612.jpeg?im_w=320")!, 
-                                         URL(string: "https://a0.muscache.com/im/pictures/lombard/MtTemplate-68755-media_library/original/0f1c6e81-3ec3-4a64-a8ba-64e4b8814cd4.jpeg?im_w=320")!],
+                                         URL(string: "https://a0.muscache.com/im/pictures/fe85369c-0d80-4951-8c2c-398a38dde064.jpg?im_w=720")!],
                                  pricePerPerson: 188,
                                  contactNumber: "+1(135)214-2024"),
                         Activity(name: "Nice Los Angeles Full Day City Tour", 
@@ -61,14 +61,14 @@ class DataManager {
                                  rating: 5.0,
                                  host: "Rui",
                                  photo: [URL(string: "https://a0.muscache.com/im/pictures/lombard/MtTemplate-3584843-media_library/original/8d825dc5-5e9d-41cf-acec-1ff1124e0ece.jpeg?im_w=320")!,
-                                         URL(string: "https://a0.muscache.com/im/pictures/lombard/MtTemplate-68755-media_library/original/0f1c6e81-3ec3-4a64-a8ba-64e4b8814cd4.jpeg?im_w=320")!], 
+                                         URL(string: "https://a0.muscache.com/im/pictures/lombard/MtTemplate-3584843-media_library/original/cdbf5a93-f45d-40d8-ac0f-1bb8aebaf1a9.jpeg?im_w=720")!],
                                  pricePerPerson: 130.0,
                                  contactNumber: "+1(135)214-1357"),
                         
                         Activity(name: "Arts District LA-If these walls could talk", desc: "In this neighborhood walking tour, participants will explore the Los Angeles Arts District known for its street art, and learn about the artists behind the murals through their personal stories and experiences. The tour would first include stops at several notable murals, with the guide providing background information on the artist and the inspiration behind the piece.\nIn this themed walking tour, participants will explore a specific theme that runs through many of the murals in a particular area.\nThe themes range from social justice to street politics and rules. The tour would include stops at several murals that reflect these themes, Often murals are sometimes vandalized or destroyed for many reasons and some remain unaffected.\nThe guide would provide background information on the artists and their personal stories and experiences.\nThe guide is a local artist from a well known worldwide known graffiti crew and has various city sponsored public art projects that can be viewed in person everyday. But it’s the guides access to the the inner workings of the underground street art culture that stand s him apart from all other street art tours in LA.", rating: 1.5, 
                             host: "Joseph",
                             photo: [URL(string: "https://a0.muscache.com/im/pictures/lombard/MtTemplate-4848266-media_library/original/c2cf0dda-03ef-4d8c-952e-feb7cc1e2b50.jpeg?im_w=320")!,
-                                    URL(string: "https://a0.muscache.com/im/pictures/lombard/MtTemplate-68755-media_library/original/0f1c6e81-3ec3-4a64-a8ba-64e4b8814cd4.jpeg?im_w=320")!],
+                                    URL(string: "https://a0.muscache.com/im/pictures/lombard/MtTemplate-1082605-media_library/original/016f4ec4-da26-492a-845c-995373817c35.jpeg?im_w=720")!],
                             pricePerPerson: 109.0,
                             contactNumber: "+1(135)214-1324"),
                         
@@ -77,7 +77,7 @@ class DataManager {
                                  rating: 4.82,
                                  host: "Damien",
                                  photo: [URL(string: "https://a0.muscache.com/im/pictures/lombard/MtTemplate-1088887-media_library/original/04cf3ecd-5c40-4a75-ba24-5c6f2ecae50e.jpeg?im_w=320")!,
-                                         URL(string: "https://a0.muscache.com/im/pictures/lombard/MtTemplate-68755-media_library/original/0f1c6e81-3ec3-4a64-a8ba-64e4b8814cd4.jpeg?im_w=320")!],
+                                         URL(string: "https://a0.muscache.com/im/pictures/lombard/MtTemplate-1088887-media_library/original/c2c9e701-e242-47c0-bb88-615c044241d5.jpeg?im_w=320")!],
                                  pricePerPerson: 75.0,
                                  contactNumber: "+1(416)123-4569")
                     ])
