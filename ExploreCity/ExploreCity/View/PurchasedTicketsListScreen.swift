@@ -8,38 +8,68 @@
 import SwiftUI
 
 struct PurchasedTicketsListScreen: View {
-    @EnvironmentObject var purchasedTickets: PurchasedTicketsList
+//    @EnvironmentObject var purchasedTickets: PurchasedTicketsList
+  
+    @State private var purchasedTickets: [Ticket] = []
+    
     
     var body: some View {
-//        NavigationView {
-//
-//            
-//        } // NavigationView
-        
-        VStack {
-            Text("Purchased Tickets List")
-                .font(/*@START_MENU_TOKEN@*/.title2/*@END_MENU_TOKEN@*/)
-                .fontWeight(.semibold)
+        NavigationView {
             
-            List {
-                ForEach(purchasedTickets.tickets) { ticket in
-                    NavigationLink(destination: TicketReceiptScreen(ticket: ticket)) {
-                        HStack {
-                            Text("\(ticket.activityName)")
-                            Spacer()
-                            Text("Confirmaion ID: \(ticket.confirmationNumber)")
+            VStack(alignment: .leading, spacing: 20) {
+
+                List {
+                    ForEach(purchasedTickets) { ticket in
+                        NavigationLink(destination: TicketReceiptScreen(ticket: ticket)) {
+                            PurchasedTicketTile(ticket: ticket)
                         }
                     }
+                    .onDelete(perform: deleteTicket)
+                } // List
+                
+                Spacer()
+                
+            }
+            .padding(.top, 20.0) // VStack
+            .navigationBarHidden(true)
+            .onAppear {
+                // Retrieve saved favorites from UserDefaults
+                guard let loggedInUserEmail = UserDefaults.standard.string(forKey: "LoggedInUserEmail") else {
+                    return
                 }
-                .onDelete { indexSet in
-                    purchasedTickets.tickets.remove(atOffsets: indexSet)
-                }
-            } // List
+                
+                // Retrieve tickets from UserDefaults
+                if let ticketsData = UserDefaults.standard.data(forKey: "purchasedTickets_\(loggedInUserEmail)") {
+                            let decoder = JSONDecoder()
+                            if let savedTickets = try? decoder.decode([Ticket].self, from: ticketsData) {
+                                purchasedTickets = savedTickets
+                            }
+                        }
+            }
             
-            Spacer()
             
-        } // VStack
+            
+        } // NavigationView
+        .navigationTitle("Purchased Tickets List")
+        
+        Spacer()
     } // body
+    
+    func deleteTicket(at offsets: IndexSet) {
+            purchasedTickets.remove(atOffsets: offsets)
+            saveTickets()
+        }
+
+    func saveTickets() {
+        guard let loggedInUserEmail = UserDefaults.standard.string(forKey: "LoggedInUserEmail") else {
+            return
+        }
+        
+        let encoder = JSONEncoder()
+        if let encoded = try? encoder.encode(purchasedTickets) {
+            UserDefaults.standard.set(encoded, forKey: "purchasedTickets_\(loggedInUserEmail)")
+        }
+    }
 }
 
 #Preview {

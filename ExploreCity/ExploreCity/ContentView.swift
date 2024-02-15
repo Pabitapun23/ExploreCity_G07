@@ -32,6 +32,16 @@ struct ContentView: View {
                     Text("Favorites")
                 }
                 
+                // History for purchased tickets
+                NavigationView {
+                    PurchasedTicketsListScreen()
+                       // .navigationTitle("Favorites")
+                }
+                .tabItem {
+                    Image(systemName: "ticket.fill")
+                    Text("Purchased Tickets")
+                }
+                
                 NavigationView {
                     ProfileScreen(isLoggedIn: $isLoggedIn)
                       //  .navigationTitle("Profile")

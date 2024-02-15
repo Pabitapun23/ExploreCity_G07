@@ -35,25 +35,18 @@ struct ProfileScreen: View {
                         
                     } // HStack
                     
-                    // History for purchased tickets
-                    NavigationLink(destination: PurchasedTicketsListScreen()) {
-                        HStack {
-                            Image(systemName: "ticket.fill")
-                                .resizable()
-                                .frame(width: 20.0, height: 20.0)
-                            Text("Purchased Tickets")
-                        } // HStack
-                    }
-                    
                     Button("Logout") {
                         logout()
                     }
                     .foregroundStyle(.red)
                     .padding(.vertical, 10.0)
                 }
+
             } // VStack
             .navigationBarHidden(true) // Hide navigation bar if needed
-        } // NavigationView            
+            
+            Spacer()
+        } // NavigationView
         .onAppear {
             // Retrieve loggedInUserName from UserDefaults
             if let loggedInUserEmail = UserDefaults.standard.string(forKey: "LoggedInUserEmail") {

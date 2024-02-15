@@ -17,16 +17,17 @@ struct ActivityDetailsScreen: View {
     @State private var isFavorite: Bool = false
     @State private var errorMsg: String = ""
     @State private var confirmMsg: String = ""
+    @State private var loggedInUserEmail: String = ""
 
     var activity: Activity
     
-    // reservation list
-    @EnvironmentObject var tickets: PurchasedTicketsList
+    // purchased tickets list
+//    @EnvironmentObject var tickets: PurchasedTicketsList
     
     var body: some View {
         
         ScrollView {
-            VStack(alignment: .leading, spacing: 10) {
+            VStack(alignment: .leading, spacing: 8) {
                 // Activity title
                 Text(activity.name)
                     .font(.title2)
@@ -72,54 +73,49 @@ struct ActivityDetailsScreen: View {
                 
             
                 HStack {
-                    // Price
-                    Text("Host name: \(activity.host)")
+                    // Host name
+                    Text("Posted by: \(activity.host)")
                         .font(.title3)
                         .fontWeight(.bold)
                     
                     Spacer()
                     
-                    // Share
-                    // calling prepareShareableLink() func to share the datas
-                    ShareLink(item: prepareShareableLink(), label: {
-                        Image(systemName: "square.and.arrow.up")
-                            .font(.system(size: 25))
-                            .foregroundStyle(.black)
-                    }) // ShareLink
-                    
-                    
-//                    // Favourite
-//                    Image(systemName: "heart.fill")
-//                        .resizable()
-//                        .frame(width: 25.0, height: 25.0)
-//                        .foregroundStyle(.red)
-                    
-                    // Favourite button
-                    Button(action: {
-                        isFavorite.toggle()
-                        if isFavorite {
-                        // Save the activity as a favorite
-                        saveFavorite()
-                        } else {
-                        // Remove the activity from favorites
-                        removeFavorite()
+                    Section {
+                        // Share
+                        // calling prepareShareableLink() func to share the datas
+                        ShareLink(item: prepareShareableLink(), label: {
+                            Image(systemName: "square.and.arrow.up")
+                                .font(.system(size: 25))
+                                .foregroundStyle(.black)
+                        }) // ShareLink
+                        
+                        
+                        // Favourite button
+                        Button(action: {
+                            isFavorite.toggle()
+                            if isFavorite {
+                            // Save the activity as a favorite
+                            saveFavorite()
+                            } else {
+                            // Remove the activity from favorites
+                            removeFavorite()
+                            }
+                        }) {
+                            Image(systemName: isFavorite ? "heart.fill" : "heart")
+                            .resizable()
+                            .frame(width: 30.0, height: 30.0)
+                            .foregroundColor(isFavorite ? .red : .black)
                         }
-                    }) {
-                        Image(systemName: isFavorite ? "heart.fill" : "heart")
-                        .resizable()
-                        .frame(width: 30.0, height: 30.0)
-                        .foregroundColor(isFavorite ? .red : .black)
-                    }
-                    .padding()
-                    Spacer()
+                        .padding(.trailing, 10.0)
+                    } // section
                     
                 } // HStack
+                .padding(.bottom, 8.0)
                 
                 // Description
                 Text(activity.desc)
                     .font(.body)
                     .multilineTextAlignment(.leading)
-                    .padding(.vertical, 10.0)
                 
                 // Price
                 HStack {
@@ -178,14 +174,16 @@ struct ActivityDetailsScreen: View {
                     // To present a popover view, we can use Button to toggle a Boolean value
                     // .sheet presents a popover whenever a boolean value is set to true
                     .sheet(isPresented: $isPresenting, content: {
-                        TicketPurchaseForm(customerName: $customerName, quantity: $quantity, totalPrice: $price, errMsg: $errorMsg, confirmMsg: $confirmMsg, activity: activity)
+                        TicketPurchaseForm(customerName: $customerName, quantity: $quantity, totalPrice: $price, errMsg: $errorMsg, confirmMsg: $confirmMsg, loggedInUserEmail: $loggedInUserEmail, activity: activity)
+                            .onDisappear() {
+                                confirmMsg = ""
+                                errorMsg = ""
+                            }
                      })
                                        
                     Spacer()
                 } // HStack
-                .padding()
-                
-                
+                    
                 Spacer()
                 
             } // VStack
@@ -255,7 +253,6 @@ struct ActivityDetailsScreen: View {
     } // func
     
     
-    // function to purchase ticket
     
 }
 

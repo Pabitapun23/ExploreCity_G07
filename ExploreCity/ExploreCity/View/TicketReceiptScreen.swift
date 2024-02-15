@@ -47,5 +47,5 @@ struct TicketReceiptScreen: View {
 }
 
 #Preview {
-    TicketReceiptScreen(ticket: Ticket(customerName: "user", quantity: 1, activityName: "test", totalPrice: 0.00))
+    TicketReceiptScreen(ticket: Ticket(customerName: "user", quantity: 1, activityName: "test", totalPrice: 0.00, userEmail: ""))
 }
