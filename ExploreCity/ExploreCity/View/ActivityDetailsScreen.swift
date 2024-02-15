@@ -166,8 +166,8 @@ struct ActivityDetailsScreen: View {
                         isPresenting = true
                     }
                     .padding(.all)
-                    .background(Color.primary == .white ? Color.black : Color.white) // Use black background in light mode, white background in dark mode
-                    .foregroundColor(Color.primary == .black ? .white : .black) // Use white text on dark background, black text on light background
+                    .background(.green)
+                    .foregroundColor(.white) 
                     .cornerRadius(8.0)
                     
                     // To present a popover view, we can use Button to toggle a Boolean value

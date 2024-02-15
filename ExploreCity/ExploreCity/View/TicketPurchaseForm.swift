@@ -14,11 +14,8 @@ struct TicketPurchaseForm: View {
     @Binding var errMsg: String
     @Binding var confirmMsg: String
     @Binding var loggedInUserEmail: String
-    
-    
+
     var activity: Activity
-    @State var ticketsByUser: [Ticket] = []
-    
     
     var body: some View {
         VStack() {
