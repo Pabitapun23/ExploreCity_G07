@@ -13,6 +13,8 @@ struct ActivityDetailsScreen: View {
     @State private var customerName: String = ""
     @State private var quantity: Int = 1
     @State private var price: Double = 10.00
+    @State private var selectedImageURL: URL?
+    
 
     var activity: Activity
     
@@ -29,44 +31,36 @@ struct ActivityDetailsScreen: View {
                 // Images
                 HStack {
                     Spacer()
-//                    if let imageURL = activity.photo {
-//                        AsyncImage(url: imageURL) { phase in
-//                            switch phase {
-//                            case .success(let image) :
-//                                image
-//                                    .resizable()
-//                                    .frame(width: 180, height: 300)
-//                            @unknown default:
-//                                Image(systemName: "building.2.crop.circle")
-//                            }
-//                        }
-//                    }
+
                     if let photoURLs = activity.photo {
                         ForEach(photoURLs, id: \.self) { url in
                             // Load and display the photo from the URL
-                            AsyncImage(url: url) { phase in
-                                switch phase {
-                                case .success(let image) :
-                                    image
-                                        .resizable()
-                                        .frame(width: 180, height: 300)
-                                case .empty:
-                                    Image(systemName: "building.2.crop.circle")
-                                case .failure(_):
-                                    Image(systemName: "building.2.crop.circle")
-                                @unknown default:
-                                    Image(systemName: "building.2.crop.circle")
-                                }
-                            } // AsyncImage
+                            Button(action: {
+                                // Set the selectedImageURL to the tapped image URL
+                                selectedImageURL = url
+                            }) {
+                                AsyncImage(url: url) { phase in
+                                    switch phase {
+                                    case .success(let image) :
+                                        image
+                                            .resizable()
+                                            .frame(width: 180, height: 300)
+                                            .aspectRatio(contentMode: .fit)
+                                        
+                                    case .empty:
+                                        Image(systemName: "building.2.crop.circle")
+                                    case .failure(_):
+                                        Image(systemName: "building.2.crop.circle")
+                                    @unknown default:
+                                        Image(systemName: "building.2.crop.circle")
+                                    }
+                                } // AsyncImage
 
+                            }
                         } // ForEach
                     } // photoURLs
                     
-                
                     
-//                    Image("canoe2")
-//                        .resizable()
-//                        .frame(width: 180, height: 300)
                     Spacer()
                     
                 } // HStack
@@ -175,8 +169,19 @@ struct ActivityDetailsScreen: View {
             .navigationTitle("ActivityDetails Screen")
             .navigationBarTitleDisplayMode(.inline)
             
-            
         } // ScrollView
+        .sheet(isPresented: Binding<Bool>(
+            get: { selectedImageURL != nil },
+            set: { isPresenting = $0 }
+         )) {
+             if let url = selectedImageURL {
+                 ImageView(imageURL: url)
+                     .onDisappear {
+                         selectedImageURL = nil
+                     }
+             } // if   
+         } // .sheet
+                    
     } // body
     
     // Function to prepare shareable link
@@ -184,7 +189,7 @@ struct ActivityDetailsScreen: View {
         // shareable data includes activity name and price per person
         let shareableData = "\(activity.name): $\(activity.pricePerPerson) per person"
         return shareableData
-    }
+    } // func
     
 }
 
