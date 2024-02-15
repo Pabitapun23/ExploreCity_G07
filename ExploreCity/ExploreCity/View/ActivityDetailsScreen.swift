@@ -21,9 +21,6 @@ struct ActivityDetailsScreen: View {
 
     var activity: Activity
     
-    // purchased tickets list
-//    @EnvironmentObject var tickets: PurchasedTicketsList
-    
     var body: some View {
         
         ScrollView {

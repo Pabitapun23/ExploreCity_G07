@@ -22,6 +22,10 @@ struct LoginScreen: View {
     var body: some View {
         NavigationView {
             VStack(spacing: 15) {
+                Image("logo_light")
+                    .resizable()
+                    .frame(width: 150.0, height: 150.0)
+                
                 HStack {
                     Text("Welcome to")
                         .font(.system(size: 32))

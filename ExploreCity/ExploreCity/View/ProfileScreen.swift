@@ -8,9 +8,9 @@
 import SwiftUI
 
 struct ProfileScreen: View {
-    @Binding var isLoggedIn: Bool // Use binding to update the state
+    // Use binding to update the state
+    @Binding var isLoggedIn: Bool
     @State private var loggedInUserName: String?
-    @EnvironmentObject var purchasedTickets: PurchasedTicketsList
     
     var body: some View {
         NavigationView {

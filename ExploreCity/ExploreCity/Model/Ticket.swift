@@ -15,7 +15,7 @@ class Ticket: Identifiable, Codable{
     var activityImage: [URL]?
     var userEmail: String
     
-    // computed property for confirmation number
+    // property for confirmation number
     var confirmationNumber: String
     
     // function to generate bookingNumber from random alphabets and Numbers

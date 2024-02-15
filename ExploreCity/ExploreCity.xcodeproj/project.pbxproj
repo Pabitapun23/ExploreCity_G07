@@ -27,7 +27,6 @@
 		5034D12A2B7DD5B000815FB0 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5034D1292B7DD5B000815FB0 /* User.swift */; };
 		5034D12C2B7DD5DE00815FB0 /* LoginScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5034D12B2B7DD5DE00815FB0 /* LoginScreen.swift */; };
 		5034D12E2B7DEDCC00815FB0 /* Ticket.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5034D12D2B7DEDCC00815FB0 /* Ticket.swift */; };
-		5034D1372B7DFD0600815FB0 /* PurchasedTicketsList.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5034D1362B7DFD0600815FB0 /* PurchasedTicketsList.swift */; };
 		5034D1392B7E09D900815FB0 /* PurchasedTicketsListScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5034D1382B7E09D900815FB0 /* PurchasedTicketsListScreen.swift */; };
 		5034D13B2B7E0EAF00815FB0 /* TicketReceiptScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5034D13A2B7E0EAF00815FB0 /* TicketReceiptScreen.swift */; };
 		5034D13D2B7E879400815FB0 /* PurchasedTicketTile.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5034D13C2B7E879400815FB0 /* PurchasedTicketTile.swift */; };
@@ -76,7 +75,6 @@
 		5034D1292B7DD5B000815FB0 /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		5034D12B2B7DD5DE00815FB0 /* LoginScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginScreen.swift; sourceTree = "<group>"; };
 		5034D12D2B7DEDCC00815FB0 /* Ticket.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Ticket.swift; sourceTree = "<group>"; };
-		5034D1362B7DFD0600815FB0 /* PurchasedTicketsList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PurchasedTicketsList.swift; sourceTree = "<group>"; };
 		5034D1382B7E09D900815FB0 /* PurchasedTicketsListScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PurchasedTicketsListScreen.swift; sourceTree = "<group>"; };
 		5034D13A2B7E0EAF00815FB0 /* TicketReceiptScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TicketReceiptScreen.swift; sourceTree = "<group>"; };
 		5034D13C2B7E879400815FB0 /* PurchasedTicketTile.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PurchasedTicketTile.swift; sourceTree = "<group>"; };
@@ -137,7 +135,6 @@
 				316D0DEB2B773E70004B280C /* City.swift */,
 				5034D1292B7DD5B000815FB0 /* User.swift */,
 				5034D12D2B7DEDCC00815FB0 /* Ticket.swift */,
-				5034D1362B7DFD0600815FB0 /* PurchasedTicketsList.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -337,7 +334,6 @@
 				316D0DEA2B773E52004B280C /* DataManager.swift in Sources */,
 				500F3CFE2B7588A300EA6EF1 /* ContentView.swift in Sources */,
 				5034D12C2B7DD5DE00815FB0 /* LoginScreen.swift in Sources */,
-				5034D1372B7DFD0600815FB0 /* PurchasedTicketsList.swift in Sources */,
 				500A7CD02B7D974700131DDD /* RatingView.swift in Sources */,
 				500A7CBE2B7D3A0900131DDD /* TicketPurchaseForm.swift in Sources */,
 				500F3D2A2B758C5D00EA6EF1 /* ActivityDetailsScreen.swift in Sources */,
