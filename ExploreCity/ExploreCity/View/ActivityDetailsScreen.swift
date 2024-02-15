@@ -105,7 +105,13 @@ struct ActivityDetailsScreen: View {
                 } // HStack
                   
                 // Rating
-                RatingView(rating: .constant(activity.rating))
+                HStack {
+                    Text("Rating: ")
+                        .fontWeight(.bold)
+                        .padding(.bottom, 10.0)
+                    RatingView(rating: .constant(activity.rating))
+                        .padding(.bottom, 10.0)
+                }
                 
                 // For ticket purchase
                 HStack {
