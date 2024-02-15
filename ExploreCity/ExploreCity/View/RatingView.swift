@@ -13,7 +13,7 @@ struct RatingView: View {
     var offImage: Image = Image(systemName: "star")
     var onImage: Image = Image(systemName: "star.fill")
     var halfImage: Image = Image(systemName: "star.leadinghalf.fill")
-    var offColor: Color = Color.gray
+//    var offColor: Color = Color.gray
     var onColor: Color = Color.yellow
  
     
@@ -22,13 +22,12 @@ struct RatingView: View {
             
             ForEach((1...Int(maximumRating)).map { Double($0) }, id: \.self) { number in
                 self.getRating(for: number)
-                    .foregroundColor(number > self.rating ? self.offColor : self.onColor)
+                    .foregroundColor(self.onColor)
                     .onTapGesture {
                         self.rating = number
                     }
             } // ForEach
-            
-            
+       
         } // HStack
     } // body
     
