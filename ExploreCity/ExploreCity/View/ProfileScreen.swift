@@ -13,12 +13,13 @@ struct ProfileScreen: View {
     @State private var loggedInUserName: String?
     
     var body: some View {
-        NavigationView {
+        NavigationStack {
             VStack(alignment: .leading, spacing: 20) {
                 Text("Profile")
                     .font(.largeTitle)
                     .fontWeight(.bold)
-                    .padding(.leading)
+                    .padding(.leading, 20.0)
+                    .padding(.top, 40.0)
                 
                 Form {
                     HStack {

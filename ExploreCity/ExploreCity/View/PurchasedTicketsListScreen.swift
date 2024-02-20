@@ -44,7 +44,7 @@ struct PurchasedTicketsListScreen: View {
                                 purchasedTickets = savedTickets
                             }
                         }
-            }
+               }
             
             
             
