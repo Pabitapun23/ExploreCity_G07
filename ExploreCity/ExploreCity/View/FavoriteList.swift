@@ -11,26 +11,51 @@ struct FavoriteList: View {
     @State private var favorites: [String] = []
     
     var body: some View {
-        NavigationView {
+        NavigationStack {
             VStack {
+                Text("Favorite List")
+                    .font(.largeTitle)
+                    .fontWeight(.bold)
+                    .frame(maxWidth: .infinity, alignment: .leading)
+                    .padding(.leading, 20.0)
+                    .padding(.top, 40.0)
+                
+                
                 if favorites.isEmpty {
                     Text("No favorites saved")
+                        .fontWeight(.semibold)
+                        .padding(.top)
+                    
                 } else {
-                    Button(action: {removeAllFavorite()}, label: {
-                        Text("Remove All")
-                    })
+                    HStack {
+                        Spacer()
+                        Button(action: {removeAllFavorite()}, label: {
+                            Text("Remove All")
+                        })
+                        .padding(.all, 12.0)
+                        .background(/*@START_MENU_TOKEN@*//*@PLACEHOLDER=View@*/Color.red/*@END_MENU_TOKEN@*/)
+                        .foregroundColor(/*@START_MENU_TOKEN@*/.white/*@END_MENU_TOKEN@*/)
+                        .cornerRadius(/*@START_MENU_TOKEN@*/8.0/*@END_MENU_TOKEN@*/)
+                    } // HStack
+                    .padding(.trailing, 20.0)
+                    
+                    
                     List {
                         ForEach(favorites, id: \.self) { activityName in
                             NavigationLink(destination: ActivityDetailsScreen(activity: getActivityByName(activityName))) {
                                 Text(activityName)
-                            }
-                        }
+                            } // NavigationLink
+                        } // ForEach
                         .onDelete(perform: deleteFavorite)
-                    }
-                }
-            }
-            .navigationBarTitle(Text("Favorite List"))
-            .navigationBarTitleDisplayMode(.inline)
+                    } // List
+                    
+                } // if-else
+                
+                Spacer()
+                
+            } // VStack
+//            .navigationBarTitle(Text("Favorite List"))
+//            .navigationBarTitleDisplayMode(.inline)
             .padding(.bottom, 20)
             .onAppear {
                 // Retrieve saved favorites from UserDefaults
