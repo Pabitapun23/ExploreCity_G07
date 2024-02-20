@@ -28,13 +28,14 @@ struct PurchasedTicketTile: View {
                             .aspectRatio(contentMode: .fit)
                             .frame(width: 100, height: 100)
                     }
-                }
-            }else{
+                } // AsyncImage
+            } else {
                 Image(systemName: "photo")
                     .resizable()
                     .aspectRatio(contentMode: .fit)
                     .frame(width: 100, height: 100)
-            }
+            } // if-else
+            
             VStack(alignment: .leading){
                 Text("\(ticket.activityName)")
                     .font(.headline)
@@ -45,8 +46,8 @@ struct PurchasedTicketTile: View {
                         .font(.subheadline)
                         .fontWeight(/*@START_MENU_TOKEN@*/.bold/*@END_MENU_TOKEN@*/)
                     Text(ticket.confirmationNumber)
-                }
-            }
+                } // HStack
+            } // VStack
         } // HStack
     }
 }
