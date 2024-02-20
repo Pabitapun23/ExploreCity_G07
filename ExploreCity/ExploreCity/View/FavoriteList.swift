@@ -54,7 +54,7 @@ struct FavoriteList: View {
                 Spacer()
                 
             } // VStack
-//            .navigationBarTitle(Text("Favorite List"))
+//            .navigationTitle("Favorite List")
 //            .navigationBarTitleDisplayMode(.inline)
             .padding(.bottom, 20)
             .onAppear {
