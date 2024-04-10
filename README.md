@@ -11,13 +11,13 @@ Explore City is an **iOS Mobile Application** introduces a role-based rental man
 * Ching-Ying Lin
 
 ## Project Demo
-<img src="https://github.com/Pabitapun23/ExploreCity_G07/blob/main/ExploreCity/ExploreCity/ExploreCity.gif" alt="GIF of 4Rent Mobile App" height="680" width="370">
+<img src="https://github.com/Pabitapun23/ExploreCity_G07/blob/main/ExploreCity/ExploreCity/ExploreCity.gif" alt="GIF of 4Rent Mobile App" height="700" width="370">
 
 
 ## Technologies
 I used the following technologies to build this Mobile App.
 * Programming Language: Swift
-* Data Persistance: Environment Objects, Observed Object, Observable object 
+* Data Persistence: Environment Objects, Observed Objects, Observable object 
 * Architecture: MVC (Model-View-Controller)
 * IDE: Xcode
  
@@ -27,9 +27,9 @@ This Mobile Application has the following features:
 * Searching System
 * Filtering System
 * Favourite System
-* Ticket purchasing System
+* Ticket Purchasing System
 * Article Sharing System
 * Contact sharing System
-* Authentication system (LogIn/logout)
+* Authentication system (login/logout)
 * CRUD for ticket purchasing
 * RESTful API 
